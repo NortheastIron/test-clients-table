@@ -1,3 +1,22 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { ClientsPageComponent } from '@features';
+
+// exp mb сделать лоадинг компоненты
+export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: '/clients',
+        pathMatch: 'full'
+    },
+    {
+        path: 'clients',
+        component: ClientsPageComponent,
+        title: 'Clients'
+    },
+    {
+        path: '**',
+        redirectTo: '/clients',
+        pathMatch: 'full'
+    }
+];

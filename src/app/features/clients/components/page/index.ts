@@ -1,0 +1,1 @@
+export { ClientsPageComponent } from './clients.page.component';
