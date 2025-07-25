@@ -13,15 +13,18 @@
         flex-direction: column;
         background-color: #fff;
         border-radius: 20px;
+        overflow: hidden;
 
         &__controls {
             padding: 10px 15px;
             display: flex;
+            flex-wrap: wrap;
             gap: 8px;
+        }
 
-            .material-symbols-outlined {
-                color: #304879;
-            }
+        &__table {
+            flex: 1;
+            min-height: 47px;
         }
     }
 }

@@ -39,14 +39,54 @@ html {
 html, body { height: 100%; width: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.control-button {
-  width: 36px;
-  height: 36px;
-  border-radius: 100px;
-  // background-color: #304879;
-  // color: #fff;
-  span {
-      color: #304879;
+.mat-ripple, .mat-mdc-button-ripple, .mdc-checkbox__ripple {
+  display: none;
+}
+
+.icon-button {
+  --mat-icon-button-state-layer-size: 36px;
+  --mat-icon-button-disabled-icon-color: #A8B0BF;
+  --mat-icon-button-icon-color: #304879;
+  --mat-icon-button-icon-size: 20px;
+
+  .mat-mdc-button-touch-target {
+    width: 36px !important;
+    height: 36px !important;
   }
 
+  // &__cont {
+  //   overflow: hidden;
+  //   width: 20px;
+  //   height: 20px;
+  //   display: inline-block;
+  //   position: relative;
+
+  //   .material-symbols-outlined {
+  //     position: absolute;
+  //     top: 50%;
+  //     left: 50%;
+  //     transform: translate(-50%, -50%);
+  //     font-size: 26px;
+  //     // font-size: 20px !important;
+  //   }
+  // }
+
+  // .test1 {
+  //   .material-symbols-outlined {
+  //     // font-size: 20px !important;
+  //   }
+  // }
+
+  .material-symbols-outlined {
+    font-size: 20px !important;
+  }
+
+  &:hover {
+    background-color: #E2EEFF;
+  }
+
+  &:active {
+    background-color: #B5D3FF;
+  }
+  
 }

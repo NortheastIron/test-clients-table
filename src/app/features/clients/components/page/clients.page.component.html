@@ -3,28 +3,25 @@
 
     <div class="app-clients-page__content">
         <div class="app-clients-page__content__controls">
-            <button matIconButton>
+            <button matIconButton class="icon-button">
+                    <span class="material-symbols-outlined">
+                        add_box
+                    </span>
+            </button>
+            <button matIconButton class="icon-button delete-button">
                 <span class="material-symbols-outlined">
-                        add_box
-                    </span>
-            </button>
-            <button class="control-button">
-                <!-- <mat-icon class="control-icon"> -->
-                    <span class="material-symbols-outlined">
-                        add_box
-                    </span>
-                <!-- </mat-icon> -->
-            </button>
-            <button>
-                <!-- <mat-icon class="control-icon"> -->
-                    <span class="material-symbols-outlined">
-                        delete
-                    </span>
-                <!-- </mat-icon> -->
+                    delete
+                </span>
             </button>
         </div>
-        TABLE
-
         
+        <div class="app-clients-page__content__table">
+            <!-- <app-table [columns]="tableColumns"
+                       [tableData]="dataSource | async"
+                       (appTableEvent)="onTableEvent($event)">
+            </app-table> -->
+            <app-clients-table [tableData]="dataSource | async" (appTableEvent)="onTableEvent($event)">
+            </app-clients-table>
+        </div>
     </div>
 </div>

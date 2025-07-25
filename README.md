@@ -17,6 +17,8 @@ Once the server is running, open your browser and navigate to `http://localhost:
 <!-- 1. Скампоновать проект -->
 2. Создать компонентную структуру
 2.1. Page
+2.2. Данные
+2.2.1 По дефолту нет id ... надо как то добавить чтоли
 2.2. table
 2.3. form
 2.4. header
@@ -25,3 +27,5 @@ Once the server is running, open your browser and navigate to `http://localhost:
 5. Добавление/редактирование записи
 6. Удаление записи с доп диалогом
 7. Мб если будет время то сделать абстрактные классы..например сейчас для page
+
+8. СКРОЛЛ БАР

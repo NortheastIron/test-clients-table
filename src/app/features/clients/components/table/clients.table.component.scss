@@ -1,0 +1,44 @@
+.app-clients-table {
+    max-height: 100%;
+    height: 100%;
+    overflow: auto;
+
+    table {
+        --mat-table-background-color: #fff;
+
+        --mat-checkbox-unselected-icon-color: #DADADA;
+        --mat-checkbox-unselected-hover-icon-color: #DADADA;
+        --mat-checkbox-unselected-focus-icon-color: #DADADA;
+        --mat-checkbox-disabled-unselected-icon-color: #DADADA;
+        --mat-checkbox-selected-icon-color: #4A95F7;
+        --mat-checkbox-selected-focus-icon-color: #4A95F7;
+        --mat-checkbox-selected-hover-icon-color: #4A95F7;
+
+        --mat-table-header-headline-color: #2F4C97;
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .mat-mdc-row:hover {
+            background-color: #f6f9ff;
+        }
+
+        .mat-mdc-cell:hover {
+            color: #3164cb;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .mat-mdc-header-cell {
+            border: none;
+        }
+
+        .mat-mdc-cell {
+            border-bottom: none;
+            border-top: 1px solid #ABABAC;
+        }
+        
+    }
+}
