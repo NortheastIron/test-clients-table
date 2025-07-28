@@ -1,10 +1,68 @@
+@media screen and (max-height: 500px) {
+    .app-clients-table {
+        ::ng-deep .simplebar-track.simplebar-vertical {
+            bottom: 48px !important;
+        }
+    }
+}
+
 .app-clients-table {
     max-height: 100%;
     height: 100%;
+    width: 100%;
     overflow: auto;
 
+    ::ng-deep .simplebar-track {
+        &.simplebar-vertical {
+            top: 48px;
+            bottom: 135px;
+            width: 4px;
+            right: 4px;
+    
+            .simplebar-scrollbar::before {
+                top: 3px;
+                bottom: 3px;
+            }
+        }
+
+        &.simplebar-horizontal {
+            height: 4px;
+            bottom: 2px;
+            left: 15px;
+            right: 15px;
+
+
+            .simplebar-scrollbar::before {
+                left: 3px;
+                right: 3px;
+            }
+        }
+
+        .simplebar-scrollbar::before {
+            background-color: #D7E1ED;
+            opacity: 1;
+            inset: 0;
+            border-radius: 4px;
+        }
+        
+    }
+
     table {
+        width: 100%;
+
         --mat-table-background-color: #fff;
+
+        --mat-table-header-container-height: 47px;
+        --mat-table-header-headline-tracking: 0.2px;
+        --mat-table-header-headline-size: 12px;
+        --mat-table-header-headline-weight: 500;
+        --mat-table-header-headline-line-height: 16px;
+
+        --mat-table-row-item-container-height: 47px;
+        --mat-table-row-item-label-text-tracking: 0.2px;
+        --mat-table-row-item-label-text-size: 14px;
+        --mat-table-row-item-label-text-line-height: 22px;
+        --mat-table-row-item-label-text-weight: 400;
 
         --mat-checkbox-unselected-icon-color: #DADADA;
         --mat-checkbox-unselected-hover-icon-color: #DADADA;
@@ -15,14 +73,19 @@
         --mat-checkbox-selected-hover-icon-color: #4A95F7;
 
         --mat-table-header-headline-color: #2F4C97;
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
 
         .mat-mdc-row:hover {
             background-color: #f6f9ff;
+        }
+
+        .mat-mdc-header-cell {
+            border: none;
+        }
+
+
+        .mat-mdc-cell {
+            border-bottom: none;
+            box-shadow: inset 0 1px 0 rgba(171, 171, 172, 0.16);
         }
 
         .mat-mdc-cell:hover {
@@ -31,13 +94,58 @@
             text-decoration: underline;
         }
 
-        .mat-mdc-header-cell {
-            border: none;
+        .mat-column-select {
+            width: 24px;
+            padding: 0 0px 0 24px !important;
+
+            ::ng-deep .mdc-checkbox {
+                margin: 0 !important;
+                padding: 15px 3px 14px 3px !important;
+
+                .mat-mdc-checkbox-touch-target, .mdc-checkbox__native-control {
+                    height: 46px;
+                    width: 24px;
+                }
+
+                .mdc-checkbox__background {
+                    top: 15px;
+                    left: 3px;
+                }
+            }
         }
 
-        .mat-mdc-cell {
-            border-bottom: none;
-            border-top: 1px solid #ABABAC;
+        .mat-column-name,
+        .mat-column-surname,
+        .mat-column-email,
+        .mat-column-phone{
+            width: 280px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &.mat-mdc-header-cell {
+
+                div {
+                    padding: 16px 0 15px 0;
+                }
+            }
+        }
+
+        .mat-column-name {
+            padding: 0 0 0 15px !important;
+        }
+
+        .mat-column-surname {
+            padding: 0 0 0 12px !important;
+        }
+        
+        .mat-column-email, .mat-column-phone {
+            padding: 0 0 0 16px !important;
+        }
+
+        .mat-column-email,
+        .mat-column-phone{
+            text-align: end;
         }
         
     }

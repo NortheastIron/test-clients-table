@@ -3,6 +3,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
+import { SimplebarAngularModule } from 'simplebar-angular';
+
 import { UserExtended } from '@features/clients/types';
 import { TableEvents, TableEvent } from '@features/clients/components/table';
 
@@ -10,11 +12,13 @@ import { TableEvents, TableEvent } from '@features/clients/components/table';
     selector: 'app-clients-table',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatTableModule, MatCheckboxModule],
+    imports: [MatTableModule, MatCheckboxModule, SimplebarAngularModule],
     templateUrl: './clients.table.component.html',
     styleUrl: './clients.table.component.scss'
 })
 export class ClientsTableComponent {
+
+    protected options = {autoHide: false, forceVisible: true, scrollbarMaxSize: 250};
 
     @Input() set tableData(data: UserExtended[]  | null) {
         this.dataSource.data = data || [];
@@ -28,7 +32,8 @@ export class ClientsTableComponent {
         'name',
         'surname',
         'email',
-        'phone'
+        'phone',
+        'filler'
     ];
     protected dataSource = new MatTableDataSource<UserExtended>([]);
     protected selection = new SelectionModel<UserExtended>(true, []);

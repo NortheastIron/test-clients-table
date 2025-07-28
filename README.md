@@ -28,4 +28,6 @@ Once the server is running, open your browser and navigate to `http://localhost:
 6. Удаление записи с доп диалогом
 7. Мб если будет время то сделать абстрактные классы..например сейчас для page
 
-8. СКРОЛЛ БАР
+8. СКРОЛЛ БАР ... пока что выбор пал на ngx-scrollbar ... описать это в результате
+
+... всё ..чудо свершилось, беру SimplebarAngularModule ...SimpleBar
