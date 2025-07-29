@@ -146,6 +146,10 @@
         .mat-column-email,
         .mat-column-phone{
             text-align: end;
+
+            ::ng-deep .mat-sort-header-container {
+                justify-content: end;
+            }
         }
         
     }

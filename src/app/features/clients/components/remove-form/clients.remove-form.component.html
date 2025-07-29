@@ -1,0 +1,14 @@
+<div class="app-clients-remove-form dialog-form">
+    <h2 mat-dialog-title>Удаление строк</h2>
+
+    <mat-dialog-content>
+        <span>Удалить выбранные строки ({{data.qty}})?</span>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button matButton class="cancel-button" [mat-dialog-close]>Отмена</button>
+        <button matButton class="submit-button" [mat-dialog-close]="true" cdkFocusInitial>
+           Удалить
+        </button>
+    </mat-dialog-actions>
+</div>

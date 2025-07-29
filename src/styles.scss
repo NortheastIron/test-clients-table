@@ -43,6 +43,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: none;
 }
 
+.cdk-overlay-dark-backdrop {
+    background-color: #263238;
+    opacity: 0.32 !important;
+}
+
+.mat-mdc-dialog-container {
+  --mat-dialog-container-shape: 20px;
+  --mat-dialog-container-color: #fff;
+}
+
 .icon-button {
   --mat-icon-button-state-layer-size: 36px;
   --mat-icon-button-disabled-icon-color: #A8B0BF;
@@ -89,4 +99,77 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: #B5D3FF;
   }
   
+}
+
+.dialog-form {
+  padding: 44px 40px 40px 40px !important;
+
+  .mat-mdc-dialog-title {
+        --mat-dialog-headline-padding: 0;
+        --mat-dialog-subhead-color: #231F20;
+        --mat-dialog-subhead-line-height: 24px;
+        --mat-dialog-subhead-size: 24px;
+        --mat-dialog-subhead-weight: 500;
+        --mat-dialog-subhead-tracking: 0.1;
+
+        margin: 0 !important;
+
+        &::before {
+            display: none !important;
+        }
+  }
+
+  .mat-mdc-dialog-actions {
+    --mat-dialog-actions-padding: 0;
+    gap: 4px !important;
+
+    .mat-mdc-button {
+        --mat-button-text-container-shape: 37px;
+        --mat-button-text-container-height: 53px;
+
+        --mat-button-text-label-text-size: 18px;
+        --mat-button-text-label-text-tracking: 0px;
+        --mat-button-text-label-text-weight: 400;
+
+        &[disabled] {
+            &.submit-button {
+                background-color: #D8DEE9 !important;
+            }
+        }
+
+        
+
+        &.cancel-button {
+            --mat-button-text-label-text-color: #2F67D5;
+
+            &:hover {
+                background-color: rgba(60, 124, 248, 0.1) !important;
+            }
+
+            &:active {
+                background-color: rgba(25, 78, 182, 0.2) !important;
+            }
+        }
+
+        &.submit-button {
+            --mat-button-text-label-text-color: #fff;
+            --mat-button-text-disabled-label-text-color: #fff;
+
+            background-color: #2F67D5 !important;
+
+            &:hover {
+                background-color: #3C7CF8 !important;
+            }
+
+            &:active {
+                background-color: #194EB6 !important;
+            }
+        }
+
+        margin: 0 !important;
+        padding: 16px 22px !important;
+
+        
+    }
+  }
 }

@@ -1,0 +1,15 @@
+.app-clients-remove-form {
+
+    .mat-mdc-dialog-content {
+        --mat-dialog-supporting-text-color: #263238;
+        --mat-dialog-supporting-text-line-height: 22px;
+        --mat-dialog-supporting-text-tracking: 0.25px;
+        --mat-dialog-supporting-text-weight: 400;
+        --mat-dialog-supporting-text-size: 18px;
+
+        width: 368px;
+        height: 95px;
+        padding: 0 !important;
+        margin: 28px 0 12px 0;
+    }
+}

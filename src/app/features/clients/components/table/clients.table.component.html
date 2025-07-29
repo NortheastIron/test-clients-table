@@ -1,6 +1,6 @@
 <!-- <div class="app-clients-table"> -->
 <ngx-simplebar [options]="options" class="app-clients-table">
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="select">
             <th mat-header-cell *matHeaderCellDef>
                 <mat-checkbox (change)="$event ? toggleAllRows() : null"
@@ -18,7 +18,7 @@
         </ng-container>
 
         <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> <div>Имя</div> </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> <div>Имя</div> </th>
             <td mat-cell *matCellDef="let element">
                 <div>
                     {{ element.name }}
@@ -27,7 +27,7 @@
         </ng-container>
 
         <ng-container matColumnDef="surname">
-            <th mat-header-cell *matHeaderCellDef> <div>Фамилия</div>  </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> <div>Фамилия</div>  </th>
             <td mat-cell *matCellDef="let element">
                 <div>
                     {{ element.surname }}
@@ -37,7 +37,7 @@
         </ng-container>
 
         <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> <div>E-mail</div> </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> <div>E-mail</div> </th>
             <td mat-cell *matCellDef="let element">
                 <div>
                     {{ element.email }}
@@ -45,7 +45,7 @@
         </ng-container>
 
         <ng-container matColumnDef="phone">
-            <th mat-header-cell *matHeaderCellDef> <div>Телефон</div> </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> <div>Телефон</div> </th>
             <td mat-cell *matCellDef="let element">
                 <div>
                     {{ element.phone }}

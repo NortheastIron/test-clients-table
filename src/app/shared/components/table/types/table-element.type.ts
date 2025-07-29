@@ -1,1 +1,0 @@
-export type TableElement = Record<string, any>;

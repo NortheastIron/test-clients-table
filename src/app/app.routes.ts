@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 
 import { ClientsPageComponent } from '@features';
 
-// exp mb сделать лоадинг компоненты
 export const routes: Routes = [
     {
         path: '',

@@ -1,31 +1,47 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, viewChild } from '@angular/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+
+import { Subject, takeUntil } from 'rxjs';
 
 import { SimplebarAngularModule } from 'simplebar-angular';
 
 import { UserExtended } from '@features/clients/types';
 import { TableEvents, TableEvent } from '@features/clients/components/table';
 
+
 @Component({
     selector: 'app-clients-table',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatTableModule, MatCheckboxModule, SimplebarAngularModule],
+    imports: [
+        MatTableModule,
+        MatCheckboxModule,
+        SimplebarAngularModule,
+        MatSortModule
+    ],
     templateUrl: './clients.table.component.html',
     styleUrl: './clients.table.component.scss'
 })
 export class ClientsTableComponent {
 
-    protected options = {autoHide: false, forceVisible: true, scrollbarMaxSize: 250};
-
     @Input() set tableData(data: UserExtended[]  | null) {
         this.dataSource.data = data || [];
-        this.selection.clear();
+
+        if (this.selection.hasValue()) {
+            this.selection.clear();
+        }
     }
 
     @Output() appTableEvent = new EventEmitter<TableEvent>();
+
+    protected options = {
+        autoHide: false,
+        forceVisible: true,
+        scrollbarMaxSize: 250
+    };
 
     protected displayedColumns: string[] = [
         'select',
@@ -37,6 +53,30 @@ export class ClientsTableComponent {
     ];
     protected dataSource = new MatTableDataSource<UserExtended>([]);
     protected selection = new SelectionModel<UserExtended>(true, []);
+    protected sort = viewChild(MatSort);
+
+    private _destroy$ = new Subject<void>();
+
+    ngOnInit() {
+        this.selection.changed.pipe(
+            takeUntil(this._destroy$)
+        ).subscribe(() => {
+            this._makeEvent(TableEvents.SELECTION, this.selection.selected);
+        })
+    }
+
+    ngOnDestroy() {
+        this._destroy$.next();
+        this._destroy$.complete();
+    }
+
+    ngAfterViewInit() {
+        queueMicrotask(() => {
+            if (this.sort()) {
+                this.dataSource.sort = this.sort()!;
+            }
+        });
+    }
 
     protected isAllSelected() {
         const numSelected = this.selection.selected.length;
@@ -44,7 +84,7 @@ export class ClientsTableComponent {
         return numSelected === numRows;
     }
 
-    toggleAllRows() {
+    protected toggleAllRows() {
         if (this.isAllSelected()) {
           this.selection.clear();
           return;
@@ -53,22 +93,13 @@ export class ClientsTableComponent {
         this.selection.select(...this.dataSource.data);
     }
 
-    // protected onRowClick(event: any, row: UserExtended) { //exp тип для ивента должен быть как мышь так и тап
-    //     const target = event.target as HTMLElement;
-    //     console.log('onROswwad');
-    //     // if (!target.closest('mat-checkbox')) {
-    //     //     return;
-    //     // }
-
-    //     this.onItemClick(event, row);
-
-    //     // this.selection.toggle(row);
-    // }
-
     protected onItemClick(event: any, row: UserExtended) {
         event.stopPropagation();
-        console.log('rowClick', row);
-        this.appTableEvent.emit({type: TableEvents.ROW_ACTION, value: row['id']});
+        this._makeEvent(TableEvents.ROW_ACTION, row['id']);
+    }
+
+    private _makeEvent(type: TableEvents, value?: any) {
+        this.appTableEvent.emit({type: type, value: value});
     }
 
 }

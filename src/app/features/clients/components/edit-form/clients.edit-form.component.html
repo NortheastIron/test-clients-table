@@ -1,0 +1,46 @@
+<div class="app-clients-edit-form dialog-form">
+    <h2 mat-dialog-title>{{data.id ? 'Редактирование' : 'Новый клиент'}}</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+        <mat-dialog-content>
+            <mat-form-field>
+                <mat-label>Имя</mat-label>
+                <input matInput formControlName="name" [autofocus]="false"/>
+                @if (name.invalid) {
+                    <mat-error>Минимальное количество символов: {{minLenght}}</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Фамилия</mat-label>
+                <input matInput formControlName="surname" [autofocus]="false"/>
+                @if (surname.invalid) {
+                    <mat-error>Минимальное количество символов: {{minLenght}}</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>E-mail</mat-label>
+                <input matInput formControlName="email" [autofocus]="false"/>
+                @if (email.invalid) {
+                    <mat-error>Некорректный адрес</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Телефон</mat-label>
+                <input matInput formControlName="phone" [autofocus]="false"/>
+                @if (phone.invalid) {
+                    <mat-error>Некорректный номер телефона</mat-error>
+                }
+            </mat-form-field>
+
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button matButton class="cancel-button" type="button" (click)="onCloseClick()">Отмена</button>
+            <button matButton class="submit-button" type="submit" [disabled]="form.invalid || form.disabled">
+                Сохранить
+            </button>
+        </mat-dialog-actions>
+    </form>
+</div>

@@ -3,12 +3,12 @@
 
     <div class="app-clients-page__content">
         <div class="app-clients-page__content__controls">
-            <button matIconButton class="icon-button">
+            <button matIconButton class="icon-button" (click)="editClient()" [disabled]="isLoading$ | async">
                     <span class="material-symbols-outlined">
                         add_box
                     </span>
             </button>
-            <button matIconButton class="icon-button delete-button">
+            <button matIconButton class="icon-button delete-button" (click)="removeDialog()" [disabled]="!(isRemoveValid$ | async)">
                 <span class="material-symbols-outlined">
                     delete
                 </span>
@@ -16,10 +16,6 @@
         </div>
         
         <div class="app-clients-page__content__table">
-            <!-- <app-table [columns]="tableColumns"
-                       [tableData]="dataSource | async"
-                       (appTableEvent)="onTableEvent($event)">
-            </app-table> -->
             <app-clients-table [tableData]="dataSource | async" (appTableEvent)="onTableEvent($event)">
             </app-clients-table>
         </div>

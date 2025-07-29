@@ -1,0 +1,1 @@
+export { ClientsRemoveFormComponent } from './clients.remove-form.component';

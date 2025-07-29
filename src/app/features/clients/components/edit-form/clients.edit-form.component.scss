@@ -1,0 +1,112 @@
+.app-clients-edit-form {
+    
+    ::ng-deep .mat-mdc-dialog-content {
+        --mat-dialog-with-actions-content-padding: 40px 0 28px 0;
+
+        display: flex;
+        flex-flow: column;
+        gap: 20px;
+
+        .mat-mdc-form-field {
+            --mat-form-field-filled-container-color: transparent;
+            --custom-border-color: #505662;
+            --mat-mdc-form-field-floating-label-scale: 1;
+
+            width: 368px;
+
+            &.mat-form-field-hide-placeholder {
+                --custom-border-color: #BBC5C9;
+                --mat-form-field-filled-label-text-color: #BBC5C9 !important;
+                --mat-form-field-filled-hover-label-text-color: #BBC5C9;
+            }
+
+            &.mat-form-field-invalid {
+                --custom-border-color: #DA1B1B;
+            }
+
+            &.mat-focused:not(.mat-form-field-invalid) {
+                --custom-border-color: #2F7FD5;
+            }
+
+            .mat-mdc-text-field-wrapper.mdc-text-field{
+
+                --mat-form-field-filled-caret-color: #1A2124;
+                --mat-form-field-filled-input-text-color: #1A2124;
+
+                --mat-form-field-container-text-line-height: 22px;
+                --mat-form-field-filled-with-label-container-padding-top: 17px;
+                --mat-form-field-filled-with-label-container-padding-bottom: 17px;
+
+                padding: 0 13px 0 16px;
+
+                .mdc-floating-label {
+                    --mat-form-field-filled-label-text-tracking: 0.25;
+                    --mat-form-field-filled-label-text-size: 16px;
+                    --mat-form-field-filled-label-text-weight: 400;
+
+                    line-height: 22px;
+
+                    .mat-mdc-form-field-required-marker {
+                        display: none;
+                    }
+
+
+                    &--float-above {
+                        --mat-form-field-filled-label-text-tracking: 0.4;
+                        --mat-form-field-filled-label-text-color: #505662;
+                        --mat-form-field-filled-label-text-size: 12px;
+                        line-height:  16px;
+
+                        transform: translateY(-50%) scale(1) !important;
+                        
+                        top: 0px !important;
+                        background-color: #fff;
+                        padding: 0 4px;
+
+                    }
+                }
+
+                height: 56px;
+                overflow: visible;
+                border: 1px solid var(--custom-border-color);
+                border-radius: 4px;
+
+                .mat-mdc-form-field-focus-overlay, .mdc-line-ripple {
+                    display: none;
+                }
+
+                .mat-mdc-input-element {
+                    line-height: 22px;
+                    letter-spacing: 0.25px;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+            }
+
+            .mat-mdc-form-field-subscript-wrapper {
+
+                &::before {
+                    display: none;
+                }
+                --mat-form-field-subscript-text-line-height: 16px;
+                --mat-form-field-subscript-text-size: 12px;
+                --mat-form-field-subscript-text-tracking: 0.4;
+                --mat-form-field-subscript-text-weight: 400;
+
+                height: 20px;
+                .mat-mdc-form-field-error-wrapper {
+                    padding: 4px 16px 0 16px;
+                    text-align: end;
+                    .mat-mdc-form-field-error {
+                        --mat-form-field-error-text-color: #DA1B1B;
+
+                        &::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
